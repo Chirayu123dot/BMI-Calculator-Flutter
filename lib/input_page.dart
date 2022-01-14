@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const double BUTTON_HEIGHT = 80.0;
 const Color DEFAULT_CARD_COLOR = Color(0xFF1D1F33);
@@ -21,8 +22,20 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                ReusableCard(colour: DEFAULT_CARD_COLOR),
-                ReusableCard(colour: DEFAULT_CARD_COLOR),
+                ReusableCard(
+                  colour: DEFAULT_CARD_COLOR,
+                  cardChild: GenderCardData(
+                    genderIcon: FontAwesomeIcons.mars,
+                    gender: 'MALE',
+                  ),
+                ),
+                ReusableCard(
+                  colour: DEFAULT_CARD_COLOR,
+                  cardChild: GenderCardData(
+                    genderIcon: FontAwesomeIcons.venus,
+                    gender: 'FEMALE',
+                  ),
+                ),
               ],
             ),
           ),
@@ -43,6 +56,37 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+class GenderCardData extends StatelessWidget {
+  final IconData genderIcon;
+  final String gender;
+
+  GenderCardData({required this.genderIcon, required this.gender});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          genderIcon,
+          size: 60.0,
+          color: Color(0xFF8D8E98),
+        ),
+        SizedBox(
+          height: 8.0,
+        ),
+        Text(
+          gender,
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Color(0xFF8D8E98),
+          ),
+        ),
+      ],
     );
   }
 }
