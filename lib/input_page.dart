@@ -12,8 +12,66 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Center(
-        child: Text('Body Text'),
+      body: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF1D1F33),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.all(20.0),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF1D1F33),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.all(20.0),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xFF1D1F33),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              margin: EdgeInsets.all(20.0),
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF1D1F33),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.all(20.0),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF1D1F33),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    margin: EdgeInsets.all(20.0),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
