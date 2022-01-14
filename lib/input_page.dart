@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const double BUTTON_HEIGHT = 80.0;
+const Color DEFAULT_CARD_COLOR = Color(0xFF1D1F33);
+const Color BUTTON_COLOR = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -17,19 +21,25 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                ReusableCard(colour: Color(0xFF1D1F33)),
-                ReusableCard(colour: Color(0xFF1D1F33)),
+                ReusableCard(colour: DEFAULT_CARD_COLOR),
+                ReusableCard(colour: DEFAULT_CARD_COLOR),
               ],
             ),
           ),
-          ReusableCard(colour: Color(0xFF1D1F33)),
+          ReusableCard(colour: DEFAULT_CARD_COLOR),
           Expanded(
             child: Row(
               children: [
-                ReusableCard(colour: Color(0xFF1D1F33)),
-                ReusableCard(colour: Color(0xFF1D1F33)),
+                ReusableCard(colour: DEFAULT_CARD_COLOR),
+                ReusableCard(colour: DEFAULT_CARD_COLOR),
               ],
             ),
+          ),
+          Container(
+            color: BUTTON_COLOR,
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: BUTTON_HEIGHT,
           )
         ],
       ),
@@ -47,7 +57,7 @@ class ReusableCard extends StatelessWidget {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xFF1D1F33),
+          color: colour,
           borderRadius: BorderRadius.circular(10.0),
         ),
         margin: EdgeInsets.all(20.0),
