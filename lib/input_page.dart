@@ -19,19 +19,7 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = INACTIVE_CARD_COLOR;
   Color femaleCardColor = INACTIVE_CARD_COLOR;
 
-  void updateGenderCard(Gender gender) {
-    setState(() {
-      if (gender == Gender.male) {
-        // male card is selected
-        maleCardColor = ACTIVE_CARD_COLOR;
-        femaleCardColor = INACTIVE_CARD_COLOR;
-      } else {
-        // female card is selected
-        femaleCardColor = ACTIVE_CARD_COLOR;
-        maleCardColor = INACTIVE_CARD_COLOR;
-      }
-    });
-  }
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +35,9 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: GestureDetector(
                     child: ReusableCard(
-                      colour: maleCardColor,
+                      colour: selectedGender == Gender.male
+                          ? ACTIVE_CARD_COLOR
+                          : INACTIVE_CARD_COLOR,
                       cardChild: GenderCardData(
                         genderIcon: FontAwesomeIcons.mars,
                         gender: 'MALE',
@@ -55,14 +45,18 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTap: () {
                       print('Male Card');
-                      updateGenderCard(Gender.male);
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
                     },
                   ),
                 ),
                 Expanded(
                   child: GestureDetector(
                     child: ReusableCard(
-                      colour: femaleCardColor,
+                      colour: selectedGender == Gender.female
+                          ? ACTIVE_CARD_COLOR
+                          : INACTIVE_CARD_COLOR,
                       cardChild: GenderCardData(
                         genderIcon: FontAwesomeIcons.venus,
                         gender: 'FEMALE',
@@ -70,7 +64,9 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTap: () {
                       print('Female Card');
-                      updateGenderCard(Gender.female);
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
                     },
                   ),
                 ),
