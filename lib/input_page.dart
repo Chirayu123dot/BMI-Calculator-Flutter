@@ -7,8 +7,8 @@ const double BUTTON_HEIGHT = 80.0;
 const Color ACTIVE_CARD_COLOR = Color(0xFF1D1F33);
 const Color INACTIVE_CARD_COLOR = Color(0xFF111328);
 const Color BUTTON_COLOR = Color(0xFFEB1555);
-const int MALE = 1;
-const int FEMALE = 2;
+
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -19,10 +19,9 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = INACTIVE_CARD_COLOR;
   Color femaleCardColor = INACTIVE_CARD_COLOR;
 
-  // male = 1, female = 2
-  void updateGenderCard(int gender) {
+  void updateGenderCard(Gender gender) {
     setState(() {
-      if (gender == MALE) {
+      if (gender == Gender.male) {
         // male card is selected
         maleCardColor = ACTIVE_CARD_COLOR;
         femaleCardColor = INACTIVE_CARD_COLOR;
@@ -56,7 +55,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTap: () {
                       print('Male Card');
-                      updateGenderCard(MALE);
+                      updateGenderCard(Gender.male);
                     },
                   ),
                 ),
@@ -71,7 +70,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTap: () {
                       print('Female Card');
-                      updateGenderCard(FEMALE);
+                      updateGenderCard(Gender.female);
                     },
                   ),
                 ),
