@@ -12,6 +12,12 @@ class BMICalculator extends StatelessWidget {
         colorScheme: ColorScheme.dark(
           surface: Color(0xFF0A0D22),
         ),
+        textTheme: TextTheme(
+          bodyText2: TextStyle(
+            fontSize: 18.0,
+            color: Color(0xFF8D8E98),
+          ),
+        ),
       ),
       home: InputPage(),
     );
