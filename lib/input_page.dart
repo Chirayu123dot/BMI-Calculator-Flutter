@@ -8,8 +8,8 @@ const double BUTTON_HEIGHT = 80.0;
 const Color ACTIVE_CARD_COLOR = Color(0xFF1D1F33);
 const Color INACTIVE_CARD_COLOR = Color(0xFF111328);
 const Color BUTTON_COLOR = Color(0xFFEB1555);
-const Color ACTIVE_CARD_GENDER_ICON_COLOR = Colors.white;
-const Color INACTIVE_CARD_GENDER_ICON_COLOR = Color(0xFF8D8E98);
+const Color ACTIVE_GENDER_DATA_COLOR = Colors.white;
+const Color INACTIVE_GENDER_DATA_COLOR = Color(0xFF8D8E98);
 
 enum Gender { male, female }
 
@@ -46,8 +46,11 @@ class _InputPageState extends State<InputPage> {
                       genderIcon: FontAwesomeIcons.mars,
                       gender: 'MALE',
                       genderIconColor: selectedGender == Gender.male
-                          ? ACTIVE_CARD_GENDER_ICON_COLOR
-                          : INACTIVE_CARD_GENDER_ICON_COLOR,
+                          ? ACTIVE_GENDER_DATA_COLOR
+                          : INACTIVE_GENDER_DATA_COLOR,
+                      genderTextColor: selectedGender == Gender.male
+                          ? ACTIVE_GENDER_DATA_COLOR
+                          : INACTIVE_GENDER_DATA_COLOR,
                     ),
                     onTapFunction: () {
                       setState(() {
@@ -64,9 +67,12 @@ class _InputPageState extends State<InputPage> {
                     cardChild: GenderCardData(
                       genderIcon: FontAwesomeIcons.venus,
                       genderIconColor: selectedGender == Gender.female
-                          ? ACTIVE_CARD_GENDER_ICON_COLOR
-                          : INACTIVE_CARD_GENDER_ICON_COLOR,
+                          ? ACTIVE_GENDER_DATA_COLOR
+                          : INACTIVE_GENDER_DATA_COLOR,
                       gender: 'FEMALE',
+                      genderTextColor: selectedGender == Gender.female
+                          ? ACTIVE_GENDER_DATA_COLOR
+                          : INACTIVE_GENDER_DATA_COLOR,
                     ),
                     onTapFunction: () {
                       setState(() {
