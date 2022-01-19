@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'resuable_card.dart';
@@ -22,6 +23,7 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColor = INACTIVE_CARD_COLOR;
 
   Gender? selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -78,6 +81,41 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: ReusableCard(
               colour: ACTIVE_CARD_COLOR,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 6.0),
+                    child: Text('HEIGHT'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                      Text(
+                        ' cm',
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                    },
+                    max: 220,
+                    min: 120,
+                    activeColor: BUTTON_COLOR,
+                    inactiveColor: Theme.of(context).textTheme.bodyText2?.color,
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(

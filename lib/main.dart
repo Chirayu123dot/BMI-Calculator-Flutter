@@ -17,6 +17,10 @@ class BMICalculator extends StatelessWidget {
             fontSize: 18.0,
             color: Color(0xFF8D8E98),
           ),
+          bodyText1: TextStyle(
+            fontSize: 45.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       home: InputPage(),
