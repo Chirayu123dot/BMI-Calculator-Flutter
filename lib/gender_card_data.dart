@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-
-// const GENDER_TEXT_STYLE = TextStyle(
-//   fontSize: 18.0,
-//   color: Color(0xFF8D8E98),
-// );
-
-const SEPARATION_HEIGHT = 8.0;
-const ICON_SIZE = 60.0;
+import 'constants.dart';
 
 class GenderCardData extends StatelessWidget {
   final IconData genderIcon;
@@ -27,11 +20,11 @@ class GenderCardData extends StatelessWidget {
       children: [
         Icon(
           genderIcon,
-          size: ICON_SIZE,
+          size: kIconSize,
           color: genderIconColor,
         ),
         SizedBox(
-          height: SEPARATION_HEIGHT,
+          height: kSeperationHeight,
         ),
         Text(
           gender,

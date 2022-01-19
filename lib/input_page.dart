@@ -3,15 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'resuable_card.dart';
 import 'gender_card_data.dart';
-
-const double BUTTON_HEIGHT = 80.0;
-const Color ACTIVE_CARD_COLOR = Color(0xFF1D1F33);
-const Color INACTIVE_CARD_COLOR = Color(0xFF111328);
-const Color BUTTON_COLOR = Color(0xFFEB1555);
-const Color ACTIVE_GENDER_DATA_COLOR = Colors.white;
-const Color INACTIVE_GENDER_DATA_COLOR = Color(0xFF8D8E98);
-
-enum Gender { male, female }
+import 'constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -19,8 +11,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = INACTIVE_CARD_COLOR;
-  Color femaleCardColor = INACTIVE_CARD_COLOR;
+  Color maleCardColor = kInactiveCardColor;
+  Color femaleCardColor = kInactiveCardColor;
 
   Gender? selectedGender;
   int height = 180;
@@ -40,17 +32,17 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: selectedGender == Gender.male
-                        ? ACTIVE_CARD_COLOR
-                        : INACTIVE_CARD_COLOR,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: GenderCardData(
                       genderIcon: FontAwesomeIcons.mars,
                       gender: 'MALE',
                       genderIconColor: selectedGender == Gender.male
-                          ? ACTIVE_GENDER_DATA_COLOR
-                          : INACTIVE_GENDER_DATA_COLOR,
+                          ? kActiveGenderDataColor
+                          : kInactiveGenderDataColor,
                       genderTextColor: selectedGender == Gender.male
-                          ? ACTIVE_GENDER_DATA_COLOR
-                          : INACTIVE_GENDER_DATA_COLOR,
+                          ? kActiveGenderDataColor
+                          : kInactiveGenderDataColor,
                     ),
                     onTapFunction: () {
                       setState(() {
@@ -62,17 +54,17 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: selectedGender == Gender.female
-                        ? ACTIVE_CARD_COLOR
-                        : INACTIVE_CARD_COLOR,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: GenderCardData(
                       genderIcon: FontAwesomeIcons.venus,
                       genderIconColor: selectedGender == Gender.female
-                          ? ACTIVE_GENDER_DATA_COLOR
-                          : INACTIVE_GENDER_DATA_COLOR,
+                          ? kActiveGenderDataColor
+                          : kInactiveGenderDataColor,
                       gender: 'FEMALE',
                       genderTextColor: selectedGender == Gender.female
-                          ? ACTIVE_GENDER_DATA_COLOR
-                          : INACTIVE_GENDER_DATA_COLOR,
+                          ? kActiveGenderDataColor
+                          : kInactiveGenderDataColor,
                     ),
                     onTapFunction: () {
                       setState(() {
@@ -86,7 +78,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              colour: ACTIVE_CARD_COLOR,
+              colour: kActiveCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -117,7 +109,7 @@ class _InputPageState extends State<InputPage> {
                     },
                     max: 220,
                     min: 120,
-                    activeColor: BUTTON_COLOR,
+                    activeColor: kButtonColor,
                     inactiveColor: Theme.of(context).textTheme.bodyText2?.color,
                   )
                 ],
@@ -129,20 +121,21 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                     child: ReusableCard(
-                  colour: ACTIVE_CARD_COLOR,
+                  colour: kActiveCardColor,
                 )),
                 Expanded(
-                    child: ReusableCard(
-                  colour: ACTIVE_CARD_COLOR,
-                )),
+                  child: ReusableCard(
+                    colour: kActiveCardColor,
+                  ),
+                ),
               ],
             ),
           ),
           Container(
-            color: BUTTON_COLOR,
+            color: kButtonColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: BUTTON_HEIGHT,
+            height: kButtonHeight,
           )
         ],
       ),
