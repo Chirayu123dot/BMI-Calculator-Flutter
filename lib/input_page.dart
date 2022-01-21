@@ -104,10 +104,11 @@ class _InputPageState extends State<InputPage> {
                     data: SliderThemeData().copyWith(
                       trackHeight: 1.5,
                       activeTrackColor: kActiveGenderDataColor,
+                      inactiveTrackColor: kInactiveGenderDataColor,
                       thumbColor: kButtonColor,
-                      overlayColor: Color(0x1fEB1555),
+                      overlayColor: kSliderOverlayColor,
                       thumbShape:
-                          RoundSliderThumbShape(enabledThumbRadius: 18.0),
+                          RoundSliderThumbShape(enabledThumbRadius: 17.0),
                       overlayShape:
                           RoundSliderOverlayShape(overlayRadius: 30.0),
                     ),
@@ -120,8 +121,6 @@ class _InputPageState extends State<InputPage> {
                       },
                       max: 220,
                       min: 120,
-                      inactiveColor:
-                          Theme.of(context).textTheme.bodyText2?.color,
                     ),
                   )
                 ],
