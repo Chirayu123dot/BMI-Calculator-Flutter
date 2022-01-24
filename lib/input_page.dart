@@ -17,6 +17,7 @@ class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
   int weight = 60;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -146,9 +147,17 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(ButtonType.minus),
+                            RoundIconButton(ButtonType.minus, () {
+                              setState(() {
+                                weight--;
+                              });
+                            }),
                             SizedBox(width: 8.0),
-                            RoundIconButton(ButtonType.plus),
+                            RoundIconButton(ButtonType.plus, () {
+                              setState(() {
+                                weight++;
+                              });
+                            }),
                           ],
                         ),
                       ],
@@ -158,6 +167,33 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('AGE'),
+                        Text(
+                          age.toString(),
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
+                        SizedBox(height: 6.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(ButtonType.minus, () {
+                              setState(() {
+                                age--;
+                              });
+                            }),
+                            SizedBox(width: 8.0),
+                            RoundIconButton(ButtonType.plus, () {
+                              setState(() {
+                                age++;
+                              });
+                            }),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -176,14 +212,15 @@ class _InputPageState extends State<InputPage> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton(this.buttonType);
+  RoundIconButton(this.buttonType, this.onPressed);
 
   final ButtonType buttonType;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
 
       // The elevation of the button
       elevation: 0.0,
