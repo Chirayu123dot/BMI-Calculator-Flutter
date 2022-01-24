@@ -16,6 +16,7 @@ class _InputPageState extends State<InputPage> {
 
   Gender? selectedGender;
   int height = 180;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -131,9 +132,28 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                    child: ReusableCard(
-                  colour: kActiveCardColor,
-                )),
+                  child: ReusableCard(
+                    colour: kActiveCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('WEIGHT'),
+                        Text(
+                          weight.toString(),
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(Icon(Icons.remove)),
+                            SizedBox(width: 8.0),
+                            RoundIconButton(Icon(Icons.add)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColor,
@@ -150,6 +170,44 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton(this.childIcon);
+
+  final Icon childIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+
+      // The elevation of the button
+      elevation: 0.0,
+
+      // Size of the button
+      constraints: BoxConstraints.tightFor(
+        width: 52.0,
+        height: 52.0,
+      ),
+
+      // Color of the button
+      fillColor: Color(0xFF4C4F5E),
+
+      // Shape of the button
+      shape: CircleBorder(),
+
+      // The child of the button
+      child: childIcon,
+
+      // The color of the ripple(animation - small circle getting bigger)
+      // when the button is pressed
+      splashColor: Colors.transparent,
+
+      // The color of the button when pressed
+      highlightColor: Colors.transparent,
     );
   }
 }
