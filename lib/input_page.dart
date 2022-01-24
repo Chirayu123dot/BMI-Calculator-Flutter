@@ -142,12 +142,13 @@ class _InputPageState extends State<InputPage> {
                           weight.toString(),
                           style: Theme.of(context).textTheme.bodyText1,
                         ),
+                        SizedBox(height: 6.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(Icon(Icons.remove)),
+                            RoundIconButton(ButtonType.minus),
                             SizedBox(width: 8.0),
-                            RoundIconButton(Icon(Icons.add)),
+                            RoundIconButton(ButtonType.plus),
                           ],
                         ),
                       ],
@@ -175,9 +176,9 @@ class _InputPageState extends State<InputPage> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton(this.childIcon);
+  RoundIconButton(this.buttonType);
 
-  final Icon childIcon;
+  final ButtonType buttonType;
 
   @override
   Widget build(BuildContext context) {
@@ -189,8 +190,8 @@ class RoundIconButton extends StatelessWidget {
 
       // Size of the button
       constraints: BoxConstraints.tightFor(
-        width: 52.0,
-        height: 52.0,
+        width: 50.0,
+        height: 50.0,
       ),
 
       // Color of the button
@@ -200,7 +201,8 @@ class RoundIconButton extends StatelessWidget {
       shape: CircleBorder(),
 
       // The child of the button
-      child: childIcon,
+      child:
+          buttonType == ButtonType.plus ? Icon(Icons.add) : Icon(Icons.remove),
 
       // The color of the ripple(animation - small circle getting bigger)
       // when the button is pressed
