@@ -8,6 +8,7 @@ const Color kActiveGenderDataColor = Colors.white;
 const Color kInactiveGenderDataColor = Color(0xFF8D8E98);
 const Color kSliderOverlayColor = Color(0x1fEB1555);
 enum Gender { male, female }
+enum ButtonType { plus, minus }
 
 const kSeperationHeight = 8.0;
 const kIconSize = 60.0;
