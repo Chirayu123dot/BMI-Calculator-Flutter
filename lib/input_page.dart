@@ -5,6 +5,7 @@ import 'resuable_card.dart';
 import 'gender_card_data.dart';
 import 'constants.dart';
 import 'round_icon_button.dart';
+import 'result_page.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -200,12 +201,25 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kButtonColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kButtonHeight,
-          )
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ResultPage(),
+                ),
+              );
+            },
+            child: Container(
+              child: Center(
+                child: Text('CALCULATE', style: kButtonTextStyle),
+              ),
+              color: kButtonColor,
+              margin: EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: kButtonHeight,
+            ),
+          ),
         ],
       ),
     );
