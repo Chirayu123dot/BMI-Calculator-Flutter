@@ -7,6 +7,12 @@ const Color kButtonColor = Color(0xFFEB1555);
 const Color kActiveGenderDataColor = Colors.white;
 const Color kInactiveGenderDataColor = Color(0xFF8D8E98);
 const Color kSliderOverlayColor = Color(0x1fEB1555);
+
+const TextStyle kButtonTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 22.0,
+);
+
 enum Gender { male, female }
 enum ButtonType { plus, minus }
 
