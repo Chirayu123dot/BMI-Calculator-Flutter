@@ -39,33 +39,44 @@ class ResultPage extends StatelessWidget {
               colour: kActiveCardColor,
               cardChild: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 40.0, bottom: 20.0),
-                    child: Text(
-                      result,
-                      style: isBmiNormal
-                          ? kNormalBmiTextStyle
-                          : kAbnormalBmiTextStyle,
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        result,
+                        style: isBmiNormal
+                            ? kNormalBmiTextStyle
+                            : kAbnormalBmiTextStyle,
+                      ),
                     ),
                   ),
-                  Text(
-                    bmi,
-                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                          fontSize: 90.0,
-                        ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 24.0, bottom: 4.0),
-                    child: Text('Normal BMI Range:'),
-                  ),
-                  Text('18.5 - 24.9', style: kResultPageTextStyle),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 60.0, left: 45.0, right: 45.0),
+                  Expanded(
                     child: Text(
-                      description,
-                      textAlign: TextAlign.center,
-                      style: kResultPageTextStyle,
+                      bmi,
+                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                            fontSize: 90.0,
+                          ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Normal BMI Range:'),
+                        SizedBox(height: 4.0),
+                        Text('18.5 - 24.9', style: kResultPageTextStyle),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: Center(
+                        child: Text(
+                          description,
+                          textAlign: TextAlign.center,
+                          style: kResultPageTextStyle,
+                        ),
+                      ),
                     ),
                   ),
                 ],
