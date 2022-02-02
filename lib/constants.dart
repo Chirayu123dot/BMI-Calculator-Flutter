@@ -18,3 +18,14 @@ enum ButtonType { plus, minus }
 
 const kSeperationHeight = 8.0;
 const kIconSize = 60.0;
+
+const kResultPageTextStyle = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+);
+
+const kNormalBmiTextStyle =
+    TextStyle(color: Colors.green, fontWeight: FontWeight.bold);
+
+const kAbnormalBmiTextStyle =
+    TextStyle(color: Colors.red, fontWeight: FontWeight.bold);

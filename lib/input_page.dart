@@ -6,6 +6,8 @@ import 'gender_card_data.dart';
 import 'constants.dart';
 import 'round_icon_button.dart';
 import 'result_page.dart';
+import 'bottom_button.dart';
+import 'calculator_brain.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -201,26 +203,38 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
+            buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ResultPage(),
-                ),
-              );
+              CalculatorBrain calc =
+                  CalculatorBrain(height: height, weight: weight);
+
+              selectedGender == null
+                  ? _showSnackbar(context)
+                  : Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultPage(
+                          bmi: calc.calculateBMI(),
+                          result: calc.getResult(),
+                          description: calc.getInterpretation(),
+                          isBmiNormal: calc.isBmiNormal(),
+                        ),
+                      ),
+                    );
             },
-            child: Container(
-              child: Center(
-                child: Text('CALCULATE', style: kButtonTextStyle),
-              ),
-              color: kButtonColor,
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kButtonHeight,
-            ),
           ),
         ],
+      ),
+    );
+  }
+
+  void _showSnackbar(BuildContext context) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: const Text('Please select a gender'),
+        behavior: SnackBarBehavior.floating,
       ),
     );
   }
