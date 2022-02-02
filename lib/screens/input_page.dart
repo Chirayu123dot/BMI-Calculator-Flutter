@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'resuable_card.dart';
-import 'gender_card_data.dart';
-import 'constants.dart';
-import 'round_icon_button.dart';
+import '../components/resuable_card.dart';
+import '../components/gender_card_data.dart';
+import '../constants.dart';
+import '../components/round_icon_button.dart';
 import 'result_page.dart';
-import 'bottom_button.dart';
-import 'calculator_brain.dart';
+import '../components/bottom_button.dart';
+import '../calculator_brain.dart';
 
 class InputPage extends StatefulWidget {
   @override
