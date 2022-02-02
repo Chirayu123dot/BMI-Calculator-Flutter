@@ -153,7 +153,7 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             RoundIconButton(ButtonType.minus, () {
                               setState(() {
-                                weight--;
+                                if (weight > 0) weight--;
                               });
                             }),
                             SizedBox(width: 8.0),
@@ -185,7 +185,7 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             RoundIconButton(ButtonType.minus, () {
                               setState(() {
-                                age--;
+                                if (age > 0) age--;
                               });
                             }),
                             SizedBox(width: 8.0),
